@@ -23,15 +23,16 @@ class Car {
         this.carGearBoxAutomatic = carGearBoxAutomatic;
     }
 
-    void showInfo(Car car) {
+    void showInfo() {
         System.out.println("Color: " + this.carColor);
         System.out.println("Mark: " + this.carMark);
         System.out.println("MileAge: " + this.carMileAge);
         System.out.println("Automatic Gear Box: " + this.carGearBoxAutomatic);
+        System.out.println("-------------------------------");
     }
 
-    int increaseSpeed(int carMileAge) {
-        return this.carMileAge += carMileAge;
+    void increaseMileAge(int carMileAge) {
+        this.carMileAge += carMileAge;
     }
 }
 
@@ -58,11 +59,15 @@ class Person {
         this.car = car;
     }
 
-    void showInfo(Person person) {
+    void showInfo() {
         System.out.println("Name: " + this.name);
         System.out.println("Age: " + this.age);
         System.out.println("Nationality: " + this.nationality);
         System.out.println("Driver's License: " + this.driverLicense);
+        if (this.car != null) {System.out.println("Car: " + car.carMark);}
+        else System.out.println("No Car");
+        System.out.println("-------------------------------");
+
     }
 
     void setAuto(Car car) {
@@ -79,5 +84,18 @@ class Person {
 */
 
 class Test {
+    public static void main(String[] args) {
+        System.out.println("hello");
+        Car ford = new Car("red","ford", 100,true);
+        ford.showInfo();
+        ford.increaseMileAge(100);
+        ford.showInfo();
+
+        Person johnDoe = new Person ("john", 20, "UK",true, null);
+        johnDoe.showInfo();
+        johnDoe.setAuto(ford);
+        johnDoe.showInfo();
+
+    }
 
 }
